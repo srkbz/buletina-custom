@@ -1,0 +1,7 @@
+Para confirmar tu subscripción a la Newsletter de Bilbao Software Crafters,
+haz click en el siguiente enlace:
+
+{{ confirmation_url }}
+
+Si el enlace no funciona al pulsarse, copia y pega en la barra superior de tu
+navegador web.
