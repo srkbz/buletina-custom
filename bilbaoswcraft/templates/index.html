@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <title>Bilbao Software Crafters</title>
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700|Overpass+Mono:300" rel="stylesheet">        
+        <style>
+            body {
+                background-color: #fafafa;
+                margin: 30px 0 60px 0;
+                padding: 0;
+                font-family: Merriweather, serif;
+                font-weight: 300;
+                color: #473c3d;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                font-family: Merriweather, serif;
+                margin-top: 1.5em;
+            }
+
+            h1 {
+                font-size: 3em;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 2;
+            }
+
+            ul, li {
+                font-family: Merriweather, serif;
+                line-height: 2;
+            }
+
+            a {
+                color: #DA121A;
+            }
+
+            .scb-header {
+                color: #DA121A;
+            }
+
+            .scb-header-title {
+                font-family: "Overpass Mono", serif;
+                font-weight: 300;
+                font-size: 1.5em;
+                margin: 0;
+            }
+
+            .scb-content {
+                display: block;
+                margin: auto;
+                padding: 0 30px;
+                max-width: 800px;
+            }
+
+            .scb-title {
+                margin-top: .2em;
+                margin-bottom: .5em;
+            }
+
+            .subscribe-form {
+                text-align: center;
+            }
+
+            .subscribe-form input[name='accept'] {
+                display: none;
+            }
+
+            .subscribe-form .note {
+                font-size: .7em;
+            }
+
+            .subscribe-form .error {
+                font-size: .8em;
+                color: red;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="scb-content">
+            <h1 class="scb-title">Bilbao Software Crafters</h1>
+
+            <p>Somos una comunidad de desarrolladores de Software que cuidan lo que hacen y comparten sus conocimientos.</p>
+            <p>Todos nuestros eventos se rigen por nuestro <a href="https://bilbaoswcraft.github.io/code-of-conduct.html">Código de Conducta</a>.</p>
+
+            <p>Para estar al tanto de lo que organicemos, te recomendamos que <a target="_blank" href="https://twitter.com/bilbaoswcraft">nos sigas en Twitter</a>. También puedes subscribirte a nuestra newsletter para no perderte nada:</p>
+
+            <form class="subscribe-form" action="/subscribe" method="POST">
+                <input type="text" name="email" value="{{ email }}">
+                <input type="checkbox" name="accept">
+                <button>Subscribirse</button>
+                <p class="error">{{ email_error }}</p>
+                <p class="note">Al subscribirte aceptas nuestros <a target="_blank" href="https://bilbaoswcraft.github.io/newsletter-terms-and-conditions.html">términos y condiciones</a>,<br>los cuales son muy cortos y te recomendamos que leas  🙂</p>
+                <p class="note">Recibirás un email para confirmar tu subscripción.</p>
+            </form>
+        </div>
+        
+    </body>
+</html>
