@@ -5,7 +5,7 @@ Description=Buletina
 DynamicUser=yes
 StateDirectory=buletina
 WorkingDirectory=/var/lib/buletina
-EnvironmentFile=/var/lib/buletina/env
+EnvironmentFile=/var/run/buletina/env
 ExecStart=/usr/local/bin/buletina-serve
 
 Restart=on-failure
