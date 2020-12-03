@@ -10,3 +10,28 @@ services:
       args:
         BULETINA_VERSION: ${BULETINA_VERSION}
         VARIATION_NAME: ${VARIATION_NAME}
+    command: "sh -c 'cd workdir && java -jar --enable-preview ../buletina.fat.jar'"
+    volumes:
+      - ../variations/${VARIATION_NAME}:/app/workdir:ro
+    environment:
+      BULETINA_PORT: "8080"
+      BULETINA_BASE_URL: "http://127.0.0.1:8080"
+      BULETINA_JWT_SECRET: "secret"
+      BULETINA_DATABASE_URL: "jdbc:postgresql://db:5432/buletina?user=buletina&password=buletina"
+      BULETINA_SMTP_SERVER: "empty"
+      BULETINA_SMTP_USERNAME: "empty"
+      BULETINA_SMTP_PASSWORD: "empty"
+      BULETINA_SMTP_SENDER: "example@example.com"
+      BULETINA_DEBUG_TEMPLATES: "true"
+    ports:
+      - 127.0.0.1:8080:8080
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: buletina
+      POSTGRES_USER: buletina
+      POSTGRES_PASSWORD: buletina
