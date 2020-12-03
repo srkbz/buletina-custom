@@ -18,15 +18,25 @@ services:
       BULETINA_BASE_URL: "http://127.0.0.1:8080"
       BULETINA_JWT_SECRET: "secret"
       BULETINA_DATABASE_URL: "jdbc:postgresql://db:5432/buletina?user=buletina&password=buletina"
-      BULETINA_SMTP_SERVER: "empty"
-      BULETINA_SMTP_USERNAME: "empty"
-      BULETINA_SMTP_PASSWORD: "empty"
-      BULETINA_SMTP_SENDER: "example@example.com"
+      BULETINA_SMTP_SERVER: "smtp"
+      BULETINA_SMTP_USERNAME: "username"
+      BULETINA_SMTP_PASSWORD: "password"
+      BULETINA_SMTP_SENDER: "buletina@example.com"
       BULETINA_DEBUG_TEMPLATES: "true"
     ports:
       - 127.0.0.1:8080:8080
     depends_on:
+      - smtp
       - db
+
+  smtp:
+    image: gessnerfl/fake-smtp-server:1.6.1
+    restart: always
+    environment: 
+      "server.port": 8081
+      "fakesmtp.port": 25
+    ports:
+      - 127.0.0.1:8081:8081
 
   db:
     image: postgres:12-alpine
